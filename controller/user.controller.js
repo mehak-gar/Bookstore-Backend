@@ -46,7 +46,7 @@ export const login = async (req, res) => {
     }
     
     // Create and sign token
-    jwt.sign({ id: user._id, email: user.email, role: user.role }, secretKey, { expiresIn: '3000s' }, (err, token) => {
+    jwt.sign({ id: user._id, email: user.email, role: user.role }, secretKey, { expiresIn: '7d' }, (err, token) => {
       if (err) {
         console.log('Token generation error:', err.message);
         return res.status(500).json({ message: "Error generating token" });
